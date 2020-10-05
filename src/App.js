@@ -1,14 +1,13 @@
 import React from 'react';
 
-import TobuyLists from './TobuyLists';
+import TobuyList from './components/TobuyList';
+
 
 
 export default function App() {
   return (
     <div>
-      
-      <TobuyLists />
-    
+      <TobuyList />
     </div>
   );
 }
