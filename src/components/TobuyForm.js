@@ -11,8 +11,8 @@ export default function TobuyForm({ addTobuy }) {
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
-        <FormControl fullWidth={true}>
+      <form onSubmit={handleSubmit}> 
+        <FormControl fullWidth={true} style={{ marginTop: 16 }}>
           <TextField id="outlined-basic" label="Type here" required={true} value={text} onChange={(e)=>setText(e.target.value)} />
           <Fab
             variant="round"
