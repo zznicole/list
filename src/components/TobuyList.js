@@ -10,7 +10,7 @@ export default function TobuyList({ tobuys, checkTobuy }) {
           title={tobuy.title}
           checkTobuy={checkTobuy}
           id={tobuy.id}
-          isCompleted={todo.isCompleted}
+          isCompleted={tobuy.isCompleted}
         />
       ))}
     </div>
