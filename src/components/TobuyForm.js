@@ -1,20 +1,30 @@
-import React from 'react';
-import { useState } from 'react';
-import { FormControl, Container, TextField, Button } from '@material-ui/core';  
+import React, { useState } from "react";
+import { FormControl, Container, TextField, Fab } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
 
-export default function TobuyForm() {
+export default function TobuyForm({ addTobuy }) {
   const [text, setText] = useState("");
- 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addTobuy(text);
+  };
+
   return (
     <Container>
-      <form fullWidth={true} style={{marginTop:"16",}}>
+      <form onSubmit={handleSubmit}>
         <FormControl fullWidth={true}>
-          <TextField label="Type here" required={true} />
-          <Button variant="contained" backgroundColor="scondary" type="submit" style={{ marginTop: 5
-          }}>Add</Button>
+          <TextField id="outlined-basic" label="Type here" required={true} value={text} onChange={(e)=>setText(e.target.value)} />
+          <Fab
+            variant="round"
+            color="secondary"
+            type="submit"
+            aria-label="add"
+            style={{ marginTop: 5 }}
+          >
+            <AddIcon />
+          </Fab>
         </FormControl>
       </form>
     </Container>
-  )
+  );
 }
-
