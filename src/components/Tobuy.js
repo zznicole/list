@@ -2,11 +2,12 @@ import React from 'react';
 import { Container, Card, Typography, IconButton } from '@material-ui/core';
 import { Check, Delete } from '@material-ui/icons';
 
-export default function Tobuy({ title, checkTobuy, id, isCompleted }) {
+export default function Tobuy({ title, checkTobuy, id, isCompleted, deleteTobuy }) {
   const markCompleted = () => checkTobuy(id);
   const todoStyle = isCompleted
     ? { textDecoration: 'line-through' }
     : { textDecoration: 'none' };
+  const delTobuy = () => deleteTobuy(id);
   return (
     <div>
       <Container>
@@ -16,7 +17,7 @@ export default function Tobuy({ title, checkTobuy, id, isCompleted }) {
               <Check style={{ color: 'green' }} />
             </IconButton>
             {title}
-            <IconButton style={{ float: 'right' }}>
+            <IconButton style={{ float: 'right' }} onClick={delTobuy}>
               <Delete style={{ color: 'red' }} />
             </IconButton>
           </Card>

@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 } from "uuid";
 import { useState } from "react";
 import TobuyList from "./components/TobuyList";
 import TobuyForm from "./components/TobuyForm";
@@ -21,11 +22,15 @@ export default function App() {
     }))
   }
   
+  //delete a tobuy
+  const deleteTobuy =(id) => {
+    setTobuys(tobuys.filter(tobuy => tobuy.id !== id ))
+  }
 
   // Add a tobuy
   const addTobuy = (text) => {
     const newTobuy = {
-      id: 1,
+      id: v4(),
       title: text,
       isCompleted: false,
     };
@@ -38,7 +43,7 @@ export default function App() {
         <Typography variant="h5">My shopping Lists</Typography>
       </Paper>
       <TobuyForm addTobuy={addTobuy} />
-      <TobuyList tobuys={tobuys} checkTobuy={checkTobuy} />
+      <TobuyList tobuys={tobuys} checkTobuy={checkTobuy} deleteTobuy={deleteTobuy} />
     </div>
   );
 }
