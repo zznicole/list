@@ -1,20 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Lists from './Lists';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, CssBaseline, Toolbar, Typography, IconButton, Paper, Fab, Container, Card, CardActions, CardContent, Button }from '@material-ui/core';
-import { Menu, Add, Search, More, Check, Delete} from '@material-ui/icons';
-
-let lists = [{
-  id: '1',
-  primary: 'Create a new list.',
-  secondary: '',
-},
-{
-  id: '2',
-  primary: 'Second',
-  secondary: 'gdaer-g]aerg',
-},
-];
-
+import {
+  AppBar,
+  CssBaseline,
+  Toolbar,
+  Typography,
+  IconButton,
+  Paper,
+  Fab,
+} from '@material-ui/core';
+import { Menu, Add, Search, More, Check, Delete, SettingsApplicationsSharp } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -52,53 +48,52 @@ const useStyles = makeStyles((theme) => ({
   },
   check: {
     color: 'green',
-  }
+  },
 }));
 
-
-
-export default function BottomAppBar() {
+export default function TobuyLists() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>.</span>;
+  const [lists, setLists] = useState([]);
+  // add a List
+  const addList = () => {
+    console.log('add');
+    const newList = [
+      {
+        id: 1,
+        title: 'New List',
+        content: 'Tomato, Ice Creams,',
+      },
+    ];
+    setLists(...lists, newList);
+  };
+
   return (
     <React.Fragment>
       <CssBaseline />
       <Paper square className={classes.paper}>
-        <Typography className={classes.text} variant="h5" >
+        <Typography className={classes.text} variant="h5">
           My shopping Lists
         </Typography>
-        
       </Paper>
-      <Container className={classes.root}>
-        <Card  className={bull}>
-          <CardContent>
-            {/* Check Icon */}
-            <Typography variant="h5" component="h2"> 
-             <IconButton>
-               <Check className={classes.check} />
-             </IconButton>
-            </Typography>
-          </CardContent>
-        </Card>
-      </Container>
+      <Lists addList={addList} />
       <AppBar position="fixed" color="primary" className={classes.appBar}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="open drawer">
-              <Menu />
-            </IconButton>
-             {/* Add Icon */}
-            <Fab color="secondary" aria-label="add" className={classes.fabButton}> 
-              <Add />
-            </Fab>
-            <div className={classes.grow} />
-            <IconButton color="inherit">
-              <Search />
-            </IconButton>
-            <IconButton edge="end" color="inherit">
-              <More />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="open drawer">
+            <Menu />
+          </IconButton>
+          <Fab color="secondary" aria-label="add" className={classes.fabButton}>
+            <Add onClick={addList} />
+          </Fab>
+          <div className={classes.grow} />
+          <IconButton color="inherit">
+            <Search />
+          </IconButton>
+          <IconButton edge="end" color="inherit">
+            <More />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
     </React.Fragment>
   );
 }

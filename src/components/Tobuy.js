@@ -2,7 +2,13 @@ import React from 'react';
 import { Container, Card, Typography, IconButton } from '@material-ui/core';
 import { Check, Delete } from '@material-ui/icons';
 
-export default function Tobuy({ title, checkTobuy, id, isCompleted, deleteTobuy }) {
+export default function Tobuy({
+  title,
+  checkTobuy,
+  id,
+  isCompleted,
+  deleteTobuy,
+}) {
   const markCompleted = () => checkTobuy(id);
   const todoStyle = isCompleted
     ? { textDecoration: 'line-through' }
