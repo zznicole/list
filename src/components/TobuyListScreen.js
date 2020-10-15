@@ -6,7 +6,7 @@ import TobuyForm from './TobuyForm';
 
 import { Paper, Typography } from '@material-ui/core';
 
-export default function NewTobuyList() {
+export default function TobuyListScreen() {
   const [tobuys, setTobuys] = useState([]);
 
   // mark as completed
@@ -22,7 +22,7 @@ export default function NewTobuyList() {
       }),
     );
   };
-
+   
   //delete a tobuy
   const deleteTobuy = (id) => {
     setTobuys(tobuys.filter((tobuy) => tobuy.id !== id));
@@ -41,7 +41,7 @@ export default function NewTobuyList() {
   return (
     <div>
       <Paper square>
-        <Typography variant="h5">My shopping Lists</Typography>
+        <Typography variant="h5" align="center" padding="16">A List</Typography>
       </Paper>
       <TobuyForm addTobuy={addTobuy} />
       <TobuyList

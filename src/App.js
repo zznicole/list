@@ -1,12 +1,12 @@
 import React from 'react';
-// import NewTobuyList from './components/NewTobuyList';
-import TobuyLists from './components/TobuyLists';
+import ListsScreen from './components/ListsScreen';
+// import TobuyListScreen from './components/TobuyListScreen';
 
 export default function App() {
   return (
     <div>
-      {/* <NewTobuyList /> */}
-      <TobuyLists />
+      <ListsScreen />
+      {/* <TobuyListScreen /> */}
     </div>
   );
 }

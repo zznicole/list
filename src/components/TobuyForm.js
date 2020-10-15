@@ -15,19 +15,19 @@ export default function TobuyForm({ addTobuy }) {
         <FormControl fullWidth={true} style={{ marginTop: 16 }}>
           <TextField
             id="outlined-basic"
-            label="Type here"
+            label="Type item here"
             required={true}
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
           <Fab
-            variant="round"
+            variant="contained"
             color="secondary"
             type="submit"
             aria-label="add"
-            style={{ marginTop: 5 }}
+            style={{ marginTop: 5 , maxWidth: "30%"}}
           >
-            <AddIcon />
+            Add 
           </Fab>
         </FormControl>
       </form>

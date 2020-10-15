@@ -1,10 +1,19 @@
 import React from 'react';
-import List from './List';
+import ListItem from './ListItem';
 
-export default function Lists() {
+export default function Lists({ lists, checkList, deleteList }) {
   return (
     <div>
-      <List  addList={addList} />
+      {lists.map((list) => (
+        <ListItem
+          key={list.id}
+          title={list.title}
+          checkList={checkList}
+          id={list.id}
+          isCompleted={list.isCompleted}
+          deleteList={deleteList}
+        />
+      ))}
     </div>
-  )
+  );
 }
