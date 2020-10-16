@@ -4,6 +4,7 @@ import { Check, Delete } from '@material-ui/icons';
 
 export default function ListItem({
   title,
+  subtitle,
   checkList,
   id,
   isCompleted,
@@ -23,6 +24,7 @@ export default function ListItem({
               <Check style={{ color: 'green' }} />
             </IconButton>
             {title}
+            {subtitle}
             <IconButton style={{ float: 'right' }} onClick={delList}>
               <Delete style={{ color: 'red' }} />
             </IconButton>

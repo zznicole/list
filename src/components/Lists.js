@@ -8,6 +8,7 @@ export default function Lists({ lists, checkList, deleteList }) {
         <ListItem
           key={list.id}
           title={list.title}
+          subtitle={list.subtitle}
           checkList={checkList}
           id={list.id}
           isCompleted={list.isCompleted}
